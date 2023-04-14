@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "short_name": "totalcrypto",
-    "version": "1.0",
+    "version": "1.0.0",
     "name": "Total Crypto",
     "icons": {
       "16": "public/64.png",
