@@ -1,14 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import React from "react"
+import {createBrowserRouter} from "react-router-dom"
+
+import HomePage from "./pages/Home"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <p>Test</p>
-    </div>
+    <></>
   )
 }
 
-export default App
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />
+  }
+])
