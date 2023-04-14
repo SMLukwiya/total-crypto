@@ -11,3 +11,5 @@ export const cryptoApi = createApi({
     }),
   }),
 });
+
+export const { useGetAllCoinsQuery } = cryptoApi;
