@@ -1,41 +1,21 @@
 {
-    "manifest-version": 3,
+    "manifest_version": 3,
     "short_name": "totalcrypto",
+    "version": "1.0",
     "name": "Total Crypto",
-    "icons": [
-      {
-        "src": "favicon.ico",
-        "sizes": "64x64 32x32 24x24 16x16",
-        "type": "image/x-icon"
-      },
-      {
-        "src": "192.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "512.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }
-    ],
-    "display": "standalone",
-    "theme_color": "#000000",
-    "background_color": "#sffffff",
-    "permissions": ["tabs", "activeTabs"],
-    "description": "A simple chrome extension that keeps you safe from cyber attacks",
+    "icons": {
+      "16": "public/64.png",
+      "32": "public/64.png",
+      "48": "public/64.png",
+      "128": "public/192.png"
+    },
+    "permissions": ["tabs"],
+    "description": "Keep track of all your crypto stuff in one extension, set up notifications",
     "content_security_policy": {
-      "extension_pages": "default-src 'self'",
-      "sandbox": "default-src 'self'"
+      "extension_pages": "script-src 'self'; object-src 'self';",
+      "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
     },
-    "optional_permissions": ["unlimitedStorage"],
     "host_permissions": ["<all_urls>"],
-    "background": {
-      "scripts": {
-        "service_worker": "../service_worker.js",
-        "type": "module"
-      }
-    },
     "action": {
       "default_popup": "index.html"
     }
