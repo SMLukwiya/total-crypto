@@ -1,6 +1,19 @@
 import { Icon } from "@iconify/react"
+import { useAppDispatch, useAppSelector } from "../../services/store/store"
+import { switchColorMode, switchScreenSize } from "../../services/store/theme"
 
 export default function Header() {
+    const theme = useAppSelector(state => state.themeReducer)
+    const dispatch = useAppDispatch()
+
+    function screenSizeHandler() {
+        dispatch(switchScreenSize(!theme.fullScreen))
+    }
+
+    function colorModeHandler() {
+        dispatch(switchColorMode(theme.colorMode === 'dark' ? 'light' : 'dark'))
+    }
+
     return (
         <div className="flex justify-between">
                 <div className="w-1/3 h-14 -mt-4">
@@ -28,6 +41,7 @@ export default function Header() {
                             color="lightgray"
                             cursor="pointer"
                             className="ml-1"
+                            onClick={screenSizeHandler}
                             fontSize={25} />
                     </div>
                 </div>
