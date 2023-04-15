@@ -36,11 +36,11 @@ export interface CoinDefault {
   status: string;
 }
 
-type Link = {
+interface Link {
   name: string;
   type: string;
   url: string;
-};
+}
 
 export interface CryptoCoinDetail extends CryptoCoin {
   allTimeHigh: {
@@ -63,5 +63,18 @@ export interface CryptoCoinDetail extends CryptoCoin {
     max: string;
     supplyAt: Date;
     total: string;
+  };
+}
+
+export interface CoinHistory {
+  price: string;
+  timestamp: Date;
+}
+
+export interface CoinHistoryResult {
+  status: string;
+  data: {
+    change: string;
+    history: CoinHistory[];
   };
 }

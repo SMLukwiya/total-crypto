@@ -8,7 +8,6 @@ export default function HomePage() {
 
     if (isFetching) return <h1>Loading...</h1>
     if (!crypto) return <h1>Somehting went wrong</h1>
-    console.log(crypto)
 
     return (
         <Shell>

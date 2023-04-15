@@ -5,6 +5,8 @@ import {
   Coins,
   CoinDefault,
   CryptoCoinDetail,
+  CoinHistory,
+  CoinHistoryResult,
 } from "../../shared/types/crypto.shema";
 
 export const cryptoApi = createApi({
@@ -19,11 +21,28 @@ export const cryptoApi = createApi({
     }),
     getCoinById: builder.query<CryptoCoinDetail, string>({
       query: (coinId) => appendHeadersToUrl(`/coin/${coinId}`),
-      transformResponse: (data: { status: string; data: CryptoCoinDetail }) => {
-        return data.data;
+      transformResponse: (data: {
+        status: string;
+        data: { coin: CryptoCoinDetail };
+      }) => {
+        return data.data.coin;
+      },
+    }),
+    getCoinHistory: builder.query<
+      CoinHistory[],
+      { coinId: string; timePeriod: string }
+    >({
+      query: ({ coinId, timePeriod }) =>
+        appendHeadersToUrl(`/coin/${coinId}/history`, { timePeriod }),
+      transformResponse: (data: CoinHistoryResult) => {
+        return data.data.history;
       },
     }),
   }),
 });
 
-export const { useGetAllCoinsQuery, useGetCoinByIdQuery } = cryptoApi;
+export const {
+  useGetAllCoinsQuery,
+  useGetCoinByIdQuery,
+  useGetCoinHistoryQuery,
+} = cryptoApi;
