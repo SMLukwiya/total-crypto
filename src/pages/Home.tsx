@@ -13,7 +13,7 @@ export default function HomePage() {
     return (
         <Shell>
             <Header />
-            <div className="flex items-center justify-between text-gray-300">
+            <div className="flex items-center justify-between text-gray-300 border-b border-b-slate-400">
                 <p>Name</p>
                 <p>Market Cap</p>
                 <p>Price</p>
