@@ -1,6 +1,7 @@
 import { useGetAllCoinsQuery } from "../services/apis/crypto"
 import CryptoCard from "../shared/components/CryptoCard"
 import Shell from "../shared/components/Shell"
+import Header from "../shared/components/Header"
 
 export default function HomePage() {
     const {data: crypto, isFetching} = useGetAllCoinsQuery()
@@ -11,7 +12,8 @@ export default function HomePage() {
 
     return (
         <Shell>
-            <div className="flex items-center justify-between">
+            <Header />
+            <div className="flex items-center justify-between text-gray-300">
                 <p>Name</p>
                 <p>Market Cap</p>
                 <p>Price</p>
