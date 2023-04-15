@@ -1,13 +1,14 @@
 import millify from "millify";
 import { CryptoCoin } from "../types/crypto.shema";
+import { Link } from "react-router-dom"
 
 export default function CryptoCard({details}: {details: CryptoCoin}) {
-    const {name, price, change, iconUrl, symbol, marketCap, color} = details;
+    const {uuid, name, price, change, iconUrl, symbol, marketCap, color} = details;
 
     const reduction = change[0] === "-"
 
     return (
-        <div className="flex items-center justify-between mb-3">
+        <Link to={uuid} className="flex items-center justify-between mb-3">
             <div className="flex items-center w-1/3">
                 <div className=" w-8 h-8 rounded-full">
                     <img src={iconUrl} />
@@ -30,6 +31,6 @@ export default function CryptoCard({details}: {details: CryptoCoin}) {
                     {change}
                 </p>
             </div>
-        </div>
+        </Link>
     )
 }

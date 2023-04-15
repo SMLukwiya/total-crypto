@@ -35,3 +35,33 @@ export interface CoinDefault {
   data: Coins;
   status: string;
 }
+
+type Link = {
+  name: string;
+  type: string;
+  url: string;
+};
+
+export interface CryptoCoinDetail extends CryptoCoin {
+  allTimeHigh: {
+    price: string;
+    timestamp: Date;
+  };
+  description: string;
+  fullyDilutedMarketCap: string;
+  hasContent: boolean;
+  links: Link[];
+  notices: null;
+  numberOfExchanges: number;
+  numberOfMarkets: number;
+  priceAt: Date;
+  websiteUrl: string;
+  tags: string[];
+  supply: {
+    circulating: string;
+    confirmed: boolean;
+    max: string;
+    supplyAt: Date;
+    total: string;
+  };
+}

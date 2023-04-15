@@ -1,7 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { BASE_URL } from "../../utils/constants";
 import { appendHeadersToUrl } from "../../utils/helpers";
-import { Coins, CoinDefault } from "../../shared/types/crypto.shema";
+import {
+  Coins,
+  CoinDefault,
+  CryptoCoinDetail,
+} from "../../shared/types/crypto.shema";
 
 export const cryptoApi = createApi({
   reducerPath: "cryptoApi",
@@ -13,7 +17,13 @@ export const cryptoApi = createApi({
         return data.data;
       },
     }),
+    getCoinById: builder.query<CryptoCoinDetail, string>({
+      query: (coinId) => appendHeadersToUrl(`/coin/${coinId}`),
+      transformResponse: (data: { status: string; data: CryptoCoinDetail }) => {
+        return data.data;
+      },
+    }),
   }),
 });
 
-export const { useGetAllCoinsQuery } = cryptoApi;
+export const { useGetAllCoinsQuery, useGetCoinByIdQuery } = cryptoApi;
