@@ -1,17 +1,14 @@
 import React from "react"
-import {createBrowserRouter} from "react-router-dom"
+import {MemoryRouter, Routes, Route} from "react-router-dom"
 
 import HomePage from "./pages/Home"
 
-function App() {
+export default function App() {
   return (
-    <></>
+    <MemoryRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </MemoryRouter>
   )
 }
-
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <HomePage />
-  }
-])

@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "total-crypto2",
+  "version": "0.0.0",
+  "description": "Keep track of all your crypto stuff in one extension, set up notifications",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';",
+    "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
+  },
+  "action": {
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "64.png",
+    "32": "64.png",
+    "48": "64.png",
+    "128": "192.png"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/js/*.js",
+        "assets/css/*.css",
+        "icon-128.png",
+        "icon-34.png"
+      ],
+      "matches": [
+        "*://*/*"
+      ]
+    }
+  ]
+}
