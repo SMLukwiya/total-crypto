@@ -3,15 +3,15 @@ import { useAppDispatch, useAppSelector } from "../../services/store/store"
 import { switchColorMode, switchScreenSize } from "../../services/store/theme"
 
 export default function Header() {
-    const theme = useAppSelector(state => state.themeReducer)
+    const {fullScreen, colorMode} = useAppSelector(state => state.themeReducer)
     const dispatch = useAppDispatch()
 
     function screenSizeHandler() {
-        dispatch(switchScreenSize(!theme.fullScreen))
+        dispatch(switchScreenSize(!fullScreen))
     }
 
     function colorModeHandler() {
-        dispatch(switchColorMode(theme.colorMode === 'dark' ? 'light' : 'dark'))
+        dispatch(switchColorMode(colorMode === 'dark' ? 'light' : 'dark'))
     }
 
     return (
@@ -24,18 +24,20 @@ export default function Header() {
                 </div>
                 <div className="w-1/3 text-right">
                     <div className="flex justify-end">
+                        {colorMode === 'dark' ? 
                         <Icon 
                             color="lightgray" 
                             cursor="pointer"
                             fontSize={25}
-                            className="ml-1"
-                            icon="ic:round-dark-mode" />
+                            className="ml-1 opacity-60"
+                            icon="ic:round-dark-mode" /> :
                         <Icon
                             color="lightgray" 
                             cursor="pointer"
                             fontSize={25}
-                            className="ml-1"
+                            className="ml-1 opacity-60"
                             icon="material-symbols:light-mode" />
+                        }
                         <Icon 
                             icon="material-symbols:fit-screen-outline-rounded" 
                             color="lightgray"
