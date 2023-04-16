@@ -5,21 +5,31 @@ import { Link } from "react-router-dom"
 import Shell from "../shared/components/Shell"
 import { useGetCoinByIdQuery, useGetCoinHistoryQuery } from "../services/apis/crypto"
 import LineChart from "../shared/components/LineChart"
+import Loader from "../shared/components/Loader"
+import { useDispatch } from "react-redux"
+import { switchScreenSize } from "../services/store/theme"
+import { useAppSelector } from "../services/store/store"
 
 const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y']
 
 export default function Coin() {
     const [timePeriod, setTimePeriod] = useState('7d')
     const {coinId} = useParams()
+    const {fullScreen} = useAppSelector(state => state.themeReducer)
+    const dispatch = useDispatch()
     if (!coinId) return <p>Loading....</p>
     const {data: coin, isFetching} = useGetCoinByIdQuery(coinId)
-    const {data: coinHistory, isFetching: coinHistoryFetching} = useGetCoinHistoryQuery({coinId, timePeriod})
+    const {data: coinHistory} = useGetCoinHistoryQuery({coinId, timePeriod})
 
-    if (isFetching) return <p>Loading...</p>
+    if (isFetching) return <Loader />
 
-    if (!coin || !coinHistory) return <p>Loading...</p>
+    if (!coin || !coinHistory) return <Shell>Something went wrong</Shell>
 
     const reduction = coin.change[0] === "-"
+
+    function screenSizeHandler() {
+        dispatch(switchScreenSize(!fullScreen))
+    }
     
     return (
         <Shell>
@@ -34,7 +44,16 @@ export default function Coin() {
                     </Link>
                     <p className="text-sm text-gray-200">{coin.symbol} / {coin.name}</p>
                 </div>
-                <div className="bg-slate-200 px-2 rounded-lg text-sm text-center">USD</div>
+                <div className="flex">
+                    <div className="bg-slate-200 px-2 rounded-lg text-sm text-center">USD</div>
+                    <Icon 
+                        icon="material-symbols:fit-screen-outline-rounded" 
+                        color="lightgray"
+                        cursor="pointer"
+                        className="ml-1"
+                        onClick={screenSizeHandler}
+                        fontSize={25} />
+                </div>
             </div>
             <div className="flex items-center mt-2">
                 <p className="text-lg font-bold text-gray-100 mr-2">${parseFloat(coin.price).toFixed(2)}</p>

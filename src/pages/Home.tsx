@@ -8,7 +8,7 @@ export default function HomePage() {
     const {data: crypto, isFetching} = useGetAllCoinsQuery()
 
     if (isFetching) return <Loader />
-    if (!crypto) return <h1>Somehting went wrong</h1>
+    if (!crypto) return <Shell>Somehting went wrong</Shell>
 
     return (
         <Shell>

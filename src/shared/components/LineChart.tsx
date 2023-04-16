@@ -16,7 +16,7 @@ export default function LineChart({coinHistory}: {coinHistory: CoinHistory[]}) {
 
     for (let {price, timestamp} of coinHistory) {
         coinPrice.push(parseFloat(price))
-        coinTimestamp.push(new Date(timestamp).getHours())
+        coinTimestamp.push(new Date(timestamp).getDate())
     }
 
     const data: LineProps["data"] = {
@@ -25,8 +25,8 @@ export default function LineChart({coinHistory}: {coinHistory: CoinHistory[]}) {
             label: 'Price in USD',
             data: coinPrice,
             fill: false,
-            backgroundColor: 'lightgray',
-            borderColor: 'gray',
+            backgroundColor: 'blue',
+            borderColor: 'lightblue',
             stepped: true,
             borderCapStyle: 'square'
         }]

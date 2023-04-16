@@ -1,6 +1,5 @@
 import Shell from "./Shell";
 
-
 export default function() {
     return (
         <Shell>
