@@ -19,8 +19,6 @@ export default function LineChart({coinHistory}: {coinHistory: CoinHistory[]}) {
         coinTimestamp.push(new Date(timestamp).getHours())
     }
 
-    console.log(coinTimestamp)
-
     const data: LineProps["data"] = {
         labels: coinTimestamp,
         datasets: [{

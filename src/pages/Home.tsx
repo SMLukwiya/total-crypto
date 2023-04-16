@@ -2,11 +2,12 @@ import { useGetAllCoinsQuery } from "../services/apis/crypto"
 import CryptoCard from "../shared/components/CryptoCard"
 import Shell from "../shared/components/Shell"
 import Header from "../shared/components/Header"
+import Loader from "../shared/components/Loader"
 
 export default function HomePage() {
     const {data: crypto, isFetching} = useGetAllCoinsQuery()
 
-    if (isFetching) return <h1>Loading...</h1>
+    if (isFetching) return <Loader />
     if (!crypto) return <h1>Somehting went wrong</h1>
 
     return (
