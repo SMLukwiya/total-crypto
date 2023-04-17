@@ -1,15 +1,12 @@
 import { Icon } from "@iconify/react"
 import { useAppDispatch, useAppSelector } from "../../services/store/store"
-import { switchColorMode, switchScreenSize } from "../../services/store/theme"
+import { switchColorMode } from "../../services/store/theme"
 import { Link } from "react-router-dom"
+import FullScreenIcon from "./fullScreen"
 
 export default function Header() {
-    const {fullScreen, colorMode} = useAppSelector(state => state.themeReducer)
+    const {colorMode} = useAppSelector(state => state.themeReducer)
     const dispatch = useAppDispatch()
-
-    function screenSizeHandler() {
-        dispatch(switchScreenSize(!fullScreen))
-    }
 
     function colorModeHandler() {
         dispatch(switchColorMode(colorMode === 'dark' ? 'light' : 'dark'))
@@ -41,13 +38,7 @@ export default function Header() {
                             className="ml-1 opacity-60"
                             icon="material-symbols:light-mode" />
                         }
-                        <Icon 
-                            icon="material-symbols:fit-screen-outline-rounded" 
-                            color="lightgray"
-                            cursor="pointer"
-                            className="ml-1"
-                            onClick={screenSizeHandler}
-                            fontSize={25} />
+                        <FullScreenIcon />
                     </div>
                 </div>
             </div>

@@ -1,3 +1,8 @@
+import dayjs, { Dayjs } from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
+
 export function appendHeadersToUrl(url: string, params?: any) {
   return {
     url,
@@ -19,4 +24,8 @@ export function appendHeadersToNewsUrl(url: string, params?: any) {
       "X-RapidAPI-Host": import.meta.env.VITE_X_RapidAPI_Host_News,
     },
   };
+}
+
+export function formatTime(date: string | Dayjs) {
+  return dayjs(date).fromNow();
 }
