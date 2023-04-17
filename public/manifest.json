@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "total-crypto2",
-  "version": "0.0.0",
+  "name": "Total Crypto",
+  "version": "1.0.0",
   "description": "Keep track of all your crypto stuff in one extension, set up notifications",
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self';",

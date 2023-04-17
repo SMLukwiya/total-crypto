@@ -28,7 +28,8 @@ export default function LineChart({coinHistory}: {coinHistory: CoinHistory[]}) {
             backgroundColor: 'blue',
             borderColor: 'lightblue',
             stepped: true,
-            borderCapStyle: 'square'
+            borderCapStyle: 'round',
+            pointStyle: 'triangle'
         }]
     }
 
