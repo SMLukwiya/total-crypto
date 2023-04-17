@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react"
 import { useAppDispatch, useAppSelector } from "../../services/store/store"
 import { switchColorMode, switchScreenSize } from "../../services/store/theme"
+import { Link } from "react-router-dom"
 
 export default function Header() {
     const {fullScreen, colorMode} = useAppSelector(state => state.themeReducer)
@@ -20,7 +21,9 @@ export default function Header() {
                     <img src="512.png" className=" w-16 object-cover" />
                 </div>
                 <div className="w-1/3 text-center">
-                    <button className="bg-gray-300 py-1 px-2">News</button>
+                    <Link to="/news">
+                        <button className="bg-gray-300 py-1 px-2">News</button>
+                    </Link>
                 </div>
                 <div className="w-1/3 text-right">
                     <div className="flex justify-end">
