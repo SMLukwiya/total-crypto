@@ -1,5 +1,5 @@
 import {Line} from "react-chartjs-2";
-import {CategoryScale, LinearScale, Chart, PointElement, LineController, LineElement} from "chart.js"
+import {CategoryScale, LinearScale, Chart, PointElement, LineElement} from "chart.js"
 import type {ChartData, ChartOptions} from "chart.js"
 import { CoinHistory } from "../types/crypto.shema";
 

@@ -1,11 +1,7 @@
 import { useGetCryptoNewsQuery } from "../services/apis/cryptoNews"
-import Loader from "../shared/components/Loader"
-import Shell from "../shared/components/Shell"
-import NewsArticle from "../shared/components/NewsCard"
-import FullScreenIcon from "../shared/components/fullScreen"
+import {Shell, NewsArticle, FullScreenIcon, Loader} from "../shared/components"
 import { Link } from "react-router-dom"
 import { Icon } from "@iconify/react"
-
 
 export default function NewsPage() {
     const {data: news, isFetching} = useGetCryptoNewsQuery({

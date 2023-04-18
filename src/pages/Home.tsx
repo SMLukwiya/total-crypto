@@ -1,8 +1,5 @@
 import { useGetAllCoinsQuery } from "../services/apis/crypto"
-import CryptoCard from "../shared/components/CryptoCard"
-import Shell from "../shared/components/Shell"
-import Header from "../shared/components/Header"
-import Loader from "../shared/components/Loader"
+import {Shell, Header, Loader, CryptoCard} from "../shared/components"
 
 export default function HomePage() {
     const {data: crypto, isFetching} = useGetAllCoinsQuery()

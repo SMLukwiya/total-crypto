@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react"
 import { useAppDispatch, useAppSelector } from "../../services/store/store"
 import { switchColorMode } from "../../services/store/theme"
 import { Link } from "react-router-dom"
-import FullScreenIcon from "./fullScreen"
+import FullScreenIcon from "./FullScreen"
 
 export default function Header() {
     const {colorMode} = useAppSelector(state => state.themeReducer)
